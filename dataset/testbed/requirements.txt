@@ -1,0 +1,14 @@
+joblib==0.17.0
+numpy==1.19.4
+pandas==1.1.4
+pip==9.0.1
+python-dateutil==2.8.1
+pytz==2020.4
+scikit-learn==0.23.2
+scipy==1.5.4
+setuptools==39.0.1
+six==1.15.0
+sklearn
+threadpoolctl==2.1.0
+wheel==0.35.1
+matplotlib==3.3.3
