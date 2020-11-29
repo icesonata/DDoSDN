@@ -130,3 +130,4 @@ dmypy.json
 
 # User's clarification
 /dataset/testbed/venv/
+*/venv/
