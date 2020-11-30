@@ -47,6 +47,10 @@ y_pred = svclassifier.predict(X_test)
 print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
+# # Export ML model
+# from sklearn.externals import joblib
+# filename = 'sample_svm_model.sav'
+# joblib.dump(svclassifier, filename)
 
 # Others
 # to the start/end of line: https://stackoverflow.com/a/38866509/11806074
