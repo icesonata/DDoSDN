@@ -30,6 +30,9 @@ df['flag'] = df['flag'].astype('category').cat.codes
 # Ref: https://stackoverflow.com/a/40902719/11806074
 df['class'] = df['class'].map(dict(normal=0, anomaly=1))
 
+# Use only 200 samples
+df = df[:200]
+
 # Split dataset into two components: features and labels 
 X = df.drop('class', axis=1)
 y = df['class']
@@ -38,7 +41,7 @@ y = df['class']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # Initialize and train classfier
-svclassifier = SVC(kernel='rbf')
+svclassifier = SVC(kernel='linear', max_iter=10000)
 svclassifier.fit(X, y)
 
 # Evaluate classification model
