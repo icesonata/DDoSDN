@@ -1,7 +1,9 @@
+#!/usr/bin/python
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
+from mininet.node import OVSController
 
 class SingleSwitchTopo(Topo):
     def build(self):
@@ -10,10 +12,6 @@ class SingleSwitchTopo(Topo):
         s3 = self.addSwitch('s3')
         s4 = self.addSwitch('s4')
         s5 = self.addSwitch('s5')
-
-        list_hosts = []
-        for h in range(6):
-            list_hosts.append(self.addHost('h%s') % (h + 1))
 
         # Add hosts
         h1 = self.addHost('h1')
@@ -36,7 +34,7 @@ class SingleSwitchTopo(Topo):
 
 def simpleTest():
     topo = SingleSwitchTopo()
-    net = Mininet(topo)
+    net = Mininet(topo=topo, controller=OVSController)
     net.start()
     print("Dumping host connections")
     dumpNodeConnections(net.hosts)
