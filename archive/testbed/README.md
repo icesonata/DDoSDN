@@ -6,3 +6,4 @@
 
 # Note
 - If your machine is running Conda/Anaconda, run ```conda deactivate``` before installing required packages to avoid conflict.
+- This directory is for testing and experiments, i.e., private usage only.
