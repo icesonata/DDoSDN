@@ -1,0 +1,6 @@
+ryu==4.34
+mininet==2.3.0.dev6
+sklearn
+matplotlib
+numpy
+pandas
