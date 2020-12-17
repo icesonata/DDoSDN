@@ -6,4 +6,4 @@
 
 # Note
 - If your machine is running Conda/Anaconda, run ```conda deactivate``` before installing required packages to avoid conflict.
-- This directory is for testing and experiments, i.e., private usage only.
+- This is a temporary directory for testing and experiments, i.e., private usage only. Moreover, this directory will be deleted by the complete state of the project.
