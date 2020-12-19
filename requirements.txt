@@ -4,3 +4,4 @@ sklearn
 matplotlib
 numpy
 pandas
+tinyrpc==0.9.4 
