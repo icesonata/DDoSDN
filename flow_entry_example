@@ -1,0 +1,1 @@
+cookie=0x0, duration=171.700s, table=0, n_packets=114, n_bytes=25797, idle_age=57, priority=1,ip,nw_src=10.0.0.2,nw_dst=10.0.0.1 actions=output:1
