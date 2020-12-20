@@ -40,11 +40,15 @@ with open('data/ipsrc.csv', 'r') as t1, open('data/ipdst.csv', 'r') as t2:
     fileone = t1.readlines()
     filetwo = t2.readlines()
 
+# Check if the src_ip exists in the dst_ip,
+# which indicates that source IP has two-way interaction with the destination IP. 
+# If not, append that one-way interaction IP into interactive flow file (intflow.csv)
 with open('data/intflow.csv','w') as f:
     for line in fileone:
         if line not in filetwo:
             f.write(line)
 
+# Count number of 
 with open('data/intflow.csv') as f:
     reader = csv.reader(f, delimiter=",")
     dt = list(reader)
@@ -62,5 +66,12 @@ headers = ["SSIP", "SDFP", "SDFB", "SFE", "RFIP"]
 
 features = [ssip, sdfp, sdfb, sfe, rfip]
 
-print(dict(zip(headers, features)))
-print(features)
+# print(dict(zip(headers, features)))
+# print(features)
+
+with open('realtime.csv', 'w') as f:
+    cursor = csv.writer(f, delimiter=",")
+    cursor.writerow(headers)
+    cursor.writerow(features)
+
+    f.close()
