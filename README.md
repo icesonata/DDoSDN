@@ -2,7 +2,7 @@
 This is a private repository about applying Machine Learning model into DDoS attack detection in SDN. 
 
 # Prerequisite
-Install required packages via: ```pip install -r requirements.txt```
+Install required packages via: ```pip install -r requirements.txt```\
 *Note that the program is written and tested with Python version 3.x, so does pip.*
 
 # Manual
