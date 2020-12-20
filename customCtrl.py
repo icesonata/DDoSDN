@@ -130,18 +130,22 @@ class CustomController(app_manager.RyuApp):
                 srcip = ip.src
                 dstip = ip.dst
                 protocol = ip.proto
-
-                # Get TCP Header
-                # tcp_info = pkt.get_protocol(tcp.tcp)
-                # # tp_src_port = tcp_info.src_port
-                # # tp_dst_port = tcp_info.dst_port
                 
-                # Default Match from Ryu
+                # Default Match of Ryu: simple_switch_13 module
                 # match = parser.OFPMatch(in_port=in_port, eth_dst=dl_dst, eth_src=dl_src)
                 
-                # # if ICMP Protocol
-                # if protocol == in_proto.IPPROTO_ICMP:
-                #     match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP, ipv4_src=srcip, ipv4_dst=dstip, ip_proto=protocol)
+                # if ICMP Protocol
+                if protocol == in_proto.IPPROTO_ICMP:
+                    icmp_info = pkt.get_protocol(icmp.icmp)
+                    print(icmp_info.type)
+                    match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
+                                            ipv4_src=srcip,
+                                            ipv4_dst=dstip,
+                                            eth_src=dl_src,
+                                            eth_dst=dl_dst,
+                                            in_port=in_port,
+                                            ip_proto=protocol,
+                                            )
             
                 # #  if TCP Protocol
                 # elif protocol == in_proto.IPPROTO_TCP:
@@ -153,13 +157,22 @@ class CustomController(app_manager.RyuApp):
                 #     u = pkt.get_protocol(udp.udp)
                 #     match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP, ipv4_src=srcip, ipv4_dst=dstip, ip_proto=protocol, udp_src=u.src_port, udp_dst=u.dst_port,)            
 
-                # Custom match
-                match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
-                                        ipv4_src=srcip,
-                                        ipv4_dst=dstip,
-                                        # ip_proto=protocol
-                                        eth_dst=dl_dst,
-                                        eth_src=dl_src)
+                # if TCP Protocol
+                if protocol == in_proto.IPPROTO_TCP:
+                    t = pkt.get_protocol(tcp.tcp)
+                    tcp_src = t.src_port
+                    tcp_dst = t.dst_port
+                    # Custom match
+                    match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
+                                            ipv4_src=srcip,
+                                            ipv4_dst=dstip,
+                                            eth_dst=dl_dst,
+                                            eth_src=dl_src,
+                                            ip_proto=protocol,
+                                            in_port=in_port,
+                                            tcp_src=tcp_src,
+                                            tcp_dst=tcp_dst,
+                                            )
 
                 # verify if we have a valid buffer_id, if yes avoid to send both
                 # flow_mod & packet_out
