@@ -3,4 +3,5 @@ This is a private repository about applying Machine Learning model into DDoS att
 
 # Manual
 Start the Ryu controller by running: ```ryu-manager customCtrl.py```\
-Start the SDN topology by running: ```python3 topo.py```
+Start the SDN topology by running: ```python3 topo.py```\
+Start the collecting and inspecting program by running: ```source collect.sh```
