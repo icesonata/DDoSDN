@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, classification_report
-import joblib
+import joblib, warn
 
 filename = 'classifier.sav'
 classifier = joblib.load(filename)

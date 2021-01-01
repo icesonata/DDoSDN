@@ -134,7 +134,7 @@ class CustomController(app_manager.RyuApp):
                 # Default Match of Ryu: simple_switch_13 module
                 # match = parser.OFPMatch(in_port=in_port, eth_dst=dl_dst, eth_src=dl_src)
                 
-                # if ICMP Protocol
+                # If ICMP Protocol
                 if protocol == in_proto.IPPROTO_ICMP:
                     icmp_info = pkt.get_protocol(icmp.icmp)
                     print(icmp_info.type)
@@ -147,6 +147,20 @@ class CustomController(app_manager.RyuApp):
                                             ip_proto=protocol,
                                             )
     
+                #  If UDP Protocol 
+                elif protocol == in_proto.IPPROTO_UDP:
+                    u = pkt.get_protocol(udp.udp)
+                    match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
+                                            ipv4_src=srcip,
+                                            ipv4_dst=dstip,
+                                            eth_dst=dl_dst,
+                                            eth_src=dl_src,
+                                            ip_proto=protocol,
+                                            in_port=in_port,
+                                            udp_src=u.src_port,
+                                            udp_dst=u.dst_port,
+                                            ) 
+
                 #  If UDP Protocol 
                 elif protocol == in_proto.IPPROTO_UDP:
                     u = pkt.get_protocol(udp.udp)

@@ -21,6 +21,7 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
+
 # Fitting SVM with the training set
 classifier = SVC(kernel='linear', random_state=0)
 classifier.fit(X_train, y_train)
@@ -28,13 +29,14 @@ classifier.fit(X_train, y_train)
 # Testing the model by classifying the test set
 y_pred = classifier.predict(X_test)
 
-# Creating confusion matrix for evaluation
+# # Creating confusion matrix for evaluation
 cm = confusion_matrix(y_test, y_pred)
 cr = classification_report(y_test, y_pred)
 
 # # Print out confusion matrix and report
-# print(cm)
-# print(cr)
+print(y_pred)
+print(cm)
+print(cr)
 
 # Export model
 filename = 'classifier.sav'
