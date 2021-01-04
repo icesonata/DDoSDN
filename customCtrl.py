@@ -159,21 +159,7 @@ class CustomController(app_manager.RyuApp):
                                             in_port=in_port,
                                             udp_src=u.src_port,
                                             udp_dst=u.dst_port,
-                                            ) 
-
-                #  If UDP Protocol 
-                elif protocol == in_proto.IPPROTO_UDP:
-                    u = pkt.get_protocol(udp.udp)
-                    match = parser.OFPMatch(eth_type=ether_types.ETH_TYPE_IP,
-                                            ipv4_src=srcip,
-                                            ipv4_dst=dstip,
-                                            eth_dst=dl_dst,
-                                            eth_src=dl_src,
-                                            ip_proto=protocol,
-                                            in_port=in_port,
-                                            udp_src=u.src_port,
-                                            udp_dst=u.dst_port,
-                                            )            
+                                            )          
 
                 # if TCP Protocol
                 elif protocol == in_proto.IPPROTO_TCP:
