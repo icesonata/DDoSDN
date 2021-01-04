@@ -1,5 +1,5 @@
 # DDoSDN
-This is a private repository about applying Machine Learning model into DDoS attack detection in SDN. 
+This is a repository about applying Machine Learning model into DDoS attack detection in Software-defined network. 
 
 # Prerequisite
 Install required packages via: ```pip3 install -r requirements.txt```\
