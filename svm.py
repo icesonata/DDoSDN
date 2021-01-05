@@ -14,7 +14,7 @@ X = df.drop('Class', axis=1)
 y = df['Class']
 
 # Splitting the dataset into the training set and the test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # Feature scaling (or standardization)
 scaler = StandardScaler()
@@ -38,7 +38,7 @@ print(y_pred)
 print(cm)
 print(cr)
 
-# Export model
-filename = 'classifier.sav'
-joblib.dump(classifier, filename)
-print("Model exported!")
+# # Export model
+# filename = 'classifier.sav'
+# joblib.dump(classifier, filename)
+# print("Model exported!")
