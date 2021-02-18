@@ -1,2 +1,0 @@
-mininet==2.3.0.dev6
-ryu==4.15
