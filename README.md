@@ -19,7 +19,7 @@ Start the collecting and inspecting program by running: ```source collect.sh```
 ```gentraffic.sh```: generates normal traffic. \
 ```warn.py```: ignore the warning due to deprecation. \
 ```topo.py```: mininet topology. \
-```realtime.csv```: csv file that contains 5 characteristic values. (read more at #1 in [Referece](#reference)) \
+```realtime.csv```: csv file that contains 5 characteristic values. (read more at [Referece](#reference)) \
 ```inspector```: make a call to the model so as to classify the given characteristic values. \
 ```customCtrl.py```: custom Ryu controller. \
 ```computeTuples.py```: compute 5 characteristic from raw data. \
@@ -33,4 +33,4 @@ Note that mitigation method is not available in this project. The mitigate.sh fi
 
 # Reference
 [1] [DDoS-Detection-SDN](https://github.com/surajiyer3/DDoS-Detection-SDN) by William Isaac, Suraj Iyer, Nishank Thakra \
-[2] Ye, J., Cheng, X., Zhu, J., Feng, L. and Song, L., 2018. A DDoS attack detection method based on SVM in software defined network. Security and Communication Networks, 2018.
+[2] [Ye, J., Cheng, X., Zhu, J., Feng, L. and Song, L., 2018. A DDoS attack detection method based on SVM in software defined network. Security and Communication Networks, 2018.](https://www.hindawi.com/journals/scn/2018/9804061/)
